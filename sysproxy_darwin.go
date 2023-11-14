@@ -7,7 +7,6 @@ import (
 	"syscall"
 
 	"github.com/getlantern/byteexec"
-	"github.com/getlantern/elevate"
 )
 
 // Note this is a universal binary that runs on amd64 and arm64
@@ -21,12 +20,8 @@ func ensureElevatedOnDarwin(be *byteexec.Exec, prompt string, iconFullPath strin
 	if err = syscall.Stat(be.Filename, &s); err != nil {
 		return fmt.Errorf("error starting helper tool %s: %v", be.Filename, err)
 	}
-	if s.Mode&syscall.S_ISUID > 0 && s.Uid == 0 {
-		log.Tracef("%v is already owned by root and has setuid bit on", be.Filename)
-		return
-	}
-	cmd := elevate.WithPrompt(prompt).WithIcon(iconFullPath).Command(be.Filename, "setuid")
-	return run(cmd)
+
+	return nil
 }
 
 func detach(cmd *exec.Cmd) {
