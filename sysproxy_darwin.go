@@ -11,6 +11,7 @@ import (
 )
 
 // Note this is a universal binary that runs on amd64 and arm64
+//
 //go:embed binaries/darwin/sysproxy
 var sysproxy []byte
 
@@ -20,8 +21,8 @@ func ensureElevatedOnDarwin(be *byteexec.Exec, prompt string, iconFullPath strin
 	if err = syscall.Stat(be.Filename, &s); err != nil {
 		return fmt.Errorf("error starting helper tool %s: %v", be.Filename, err)
 	}
-	if s.Mode&syscall.S_ISUID > 0 && s.Uid == 0 && s.Gid == 0 {
-		log.Tracef("%v is already owned by root:wheel and has setuid bit on", be.Filename)
+	if s.Mode&syscall.S_ISUID > 0 && s.Uid == 0 {
+		log.Tracef("%v is already owned by root and has setuid bit on", be.Filename)
 		return
 	}
 	cmd := elevate.WithPrompt(prompt).WithIcon(iconFullPath).Command(be.Filename, "setuid")
