@@ -1,4 +1,4 @@
-module github.com/igoogolx/sysproxy
+module github.com/getlantern/sysproxy
 
 go 1.18
 
