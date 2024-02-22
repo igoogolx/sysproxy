@@ -4,4 +4,3 @@ example/pac*
 *.swp
 */*.exe
 sysproxy.test.exe
-.idea

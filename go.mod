@@ -4,15 +4,14 @@ go 1.18
 
 require (
 	github.com/getlantern/byteexec v0.0.0-20220903141943-7db46f110fbc
+	github.com/getlantern/elevate v0.0.0-20220903142053-479ab992b264
 	github.com/getlantern/golog v0.0.0-20211223150227-d4d95a44d873
-	github.com/getlantern/sysproxy v0.0.0-20230319110552-63a8cacb7b9b
 	github.com/stretchr/testify v1.8.0
 )
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/getlantern/context v0.0.0-20190109183933-c447772a6520 // indirect
-	github.com/getlantern/elevate v0.0.0-20220903142053-479ab992b264 // indirect
 	github.com/getlantern/errors v1.0.1 // indirect
 	github.com/getlantern/filepersist v0.0.0-20210901195658-ed29a1cb0b7c // indirect
 	github.com/getlantern/hex v0.0.0-20190417191902-c6586a6fe0b7 // indirect
